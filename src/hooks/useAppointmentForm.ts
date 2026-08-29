@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import { API_URL } from '../config.ts'
 
 export interface AppointmentFormData {
   name: string
@@ -54,7 +55,7 @@ export function useAppointmentForm() {
     }
     setFetchingSlots(true)
     try {
-      const res = await fetch(`http://localhost:3001/api/appointments/occupied?date=${date}`)
+      const res = await fetch(`${API_URL}/api/appointments/occupied?date=${date}`)
       if (res.ok) {
         const slots: string[] = await res.json()
         setOccupiedSlots(slots)

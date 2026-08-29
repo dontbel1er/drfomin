@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useState, useEffect } from 'react'
 import { useAppointmentForm, type AppointmentFormData } from '../hooks/useAppointmentForm.ts'
+import { API_URL } from '../config.ts'
 import './AppointmentModal.css'
 
 interface AppointmentModalProps {
@@ -33,7 +34,7 @@ function getServiceValueByKey(key: string): string {
 }
 
 async function createAppointment(data: AppointmentFormData) {
-  const res = await fetch('http://localhost:3001/api/appointments', {
+  const res = await fetch(`${API_URL}/api/appointments`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
