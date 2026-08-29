@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next'
-import { Map } from '../components/Map.tsx'
 
 export function ContactsPage() {
   const { t } = useTranslation()
@@ -40,7 +39,17 @@ export function ContactsPage() {
           <div className="contacts-side">
             <div className="contacts-card">
               <h3>{t('contacts_map_title')}</h3>
-              <Map />
+              <div style={{ width: '100%', height: '300px', borderRadius: '8px', overflow: 'hidden', position: 'relative', zIndex: 1 }}>
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/?text=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%2C%20%D0%9F%D0%B0%D1%80%D0%B0%D1%88%D1%8E%D1%82%D0%BD%D0%B0%D1%8F%20%D1%83%D0%BB.%2C%2023%20%D0%BA%D0%BE%D1%80.%202&z=16&scroll=false"
+                  width="100%"
+                  height="100%"
+                  frameBorder={0}
+                  allowFullScreen
+                  style={{ border: 0, display: 'block' }}
+                  title="Карта"
+                />
+              </div>
             </div>
 
             <div className="contacts-card">
